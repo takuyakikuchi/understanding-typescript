@@ -1,9 +1,9 @@
-function add(num1: number, num2: number) {
-  return num1 + num2
+const person: {
+  name: string
+  age: number
+} = {
+  name: 'TK',
+  age:30
 }
 
-const x = 5
-const y = 2.5
-
-const result = add(x, y)
-console.log(result)
+console.log(person.name, person.age)
