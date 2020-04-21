@@ -1,12 +1,8 @@
-type Combination = number | string
-
-function add(input1: Combination, input2: Combination) {
-  if (typeof input1 === "number" && typeof input2 === "number") {
-    return +input1 + +input2;
-  } else {
-    return input1.toString() + input2.toString();
-  }
+function add(input1: number, input2: number) {
+  return input1 + input2
 }
 
-console.log(add(1, 2))
-console.log(add('Takuya', 'Kikuchi'))
+let combineValues: (a: number, b: number) => number
+
+combineValues = add
+console.log(combineValues(1, 2))
