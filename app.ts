@@ -1,14 +1,10 @@
-enum Role {ADMIN = 'admin', READ_ONLY = 'read_only', AUTHOR = 'author'}
-
-const person = {
-  name: 'TK',
-  age: 30,
-  hobbies: ['soccer', 'coding'],
-  role: Role.ADMIN
+function add(input1: number | string, input2: number | string) {
+  if (typeof input1 === 'number' && typeof input2 === 'number') {
+    return input1 + input2
+  } else {
+    return input1.toString() + input2.toString()
+  }
 }
 
-console.log(person.name, person.age)
-for (const hobby of person.hobbies) {
-  console.log(hobby.toUpperCase())
-}
-console.log(person.role)
+console.log(add(1, 2))
+console.log(add('Takuya', 'Kikuchi'))

@@ -1,18 +1,10 @@
-var Role;
-(function (Role) {
-    Role["ADMIN"] = "admin";
-    Role["READ_ONLY"] = "read_only";
-    Role["AUTHOR"] = "author";
-})(Role || (Role = {}));
-var person = {
-    name: 'TK',
-    age: 30,
-    hobbies: ['soccer', 'coding'],
-    role: Role.ADMIN
-};
-console.log(person.name, person.age);
-for (var _i = 0, _a = person.hobbies; _i < _a.length; _i++) {
-    var hobby = _a[_i];
-    console.log(hobby.toUpperCase());
+function add(input1, input2) {
+    if (typeof input1 === 'number' && typeof input2 === 'number') {
+        return input1 + input2;
+    }
+    else {
+        return input1.toString() + input2.toString();
+    }
 }
-console.log(person.role);
+console.log(add(1, 2));
+console.log(add('Takuya', 'Kikuchi'));
