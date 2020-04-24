@@ -10,3 +10,4 @@ function addAndHandle(input1, input2, cb) {
     cb(result);
 }
 console.log(addAndHandle(3, 3, () => { }));
+//# sourceMappingURL=app.js.map
