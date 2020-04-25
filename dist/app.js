@@ -1,11 +1,12 @@
 "use strict";
 class Department {
-    constructor(name) {
-        this.employees = [];
+    constructor(id, name) {
+        this.id = id;
         this.name = name;
+        this.employees = [];
     }
     departmentName() {
-        return `Department ${this.name}`;
+        return `Department No.${this.id}: ${this.name}`;
     }
     addEmployee(newEmployee) {
         this.employees.push(newEmployee);
@@ -14,7 +15,7 @@ class Department {
         return this.employees;
     }
 }
-const accounting = new Department('accounting');
+const accounting = new Department(1, 'accounting');
 console.log(accounting.departmentName());
 accounting.addEmployee('Takuya');
 accounting.addEmployee('Kevin');
