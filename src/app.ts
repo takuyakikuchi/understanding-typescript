@@ -1,26 +1,33 @@
-class Department {
-  private employees: string[] = [];
+abstract class Department {
 
-  constructor(private readonly id: number, private name: string) {}
+  constructor(protected id:number, private name: string, private employees: string[] = []) {}
 
-  departmentName(): string {
-    return `Department No.${this.id}: ${this.name}`;
-  }
+  abstract departmentName(): void;
 
   addEmployee(newEmployee: string): void {
     this.employees.push(newEmployee);
   }
 
-  showAllEmployees(): string[] {
+  get allEmployees(): string[] {
     return this.employees;
   }
 }
 
-const accounting = new Department(1, 'accounting');
+class ItDepartment extends Department {
+  private specialties = ['Scrum Master', 'Front End', 'Back End'];
 
-console.log(accounting.departmentName());
+  get allSpecialties() {
+    return this.specialties;
+  }
 
-accounting.addEmployee('Takuya');
-accounting.addEmployee('Kevin');
+  departmentName(): string {
+    return `IT Department - No.${this.id}`;
+  }
+};
 
-console.log(accounting.showAllEmployees());
+const itDepartment = new ItDepartment(1, 'IT Department');
+itDepartment.addEmployee('Takuya');
+itDepartment.addEmployee('Kevin');
+console.log(itDepartment.departmentName());
+console.log(itDepartment.allSpecialties);
+console.log(itDepartment.allEmployees);
