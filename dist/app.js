@@ -1,13 +1,22 @@
 "use strict";
-function add(input1, input2) {
-    return input1 + input2;
+class Department {
+    constructor(name) {
+        this.employees = [];
+        this.name = name;
+    }
+    departmentName() {
+        return `Department ${this.name}`;
+    }
+    addEmployee(newEmployee) {
+        this.employees.push(newEmployee);
+    }
+    showAllEmployees() {
+        return this.employees;
+    }
 }
-let combineValues;
-combineValues = add;
-console.log(combineValues(1, 3));
-function addAndHandle(input1, input2, cb) {
-    const result = input1 + input2;
-    cb(result);
-}
-console.log(addAndHandle(3, 3, () => { }));
+const accounting = new Department('accounting');
+console.log(accounting.departmentName());
+accounting.addEmployee('Takuya');
+accounting.addEmployee('Kevin');
+console.log(accounting.showAllEmployees());
 //# sourceMappingURL=app.js.map

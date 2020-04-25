@@ -1,15 +1,29 @@
-function add(input1: number, input2: number) {
-  return input1 + input2
+class Department {
+  private name: string;
+  private employees: string[] = [];
+
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  departmentName(): string {
+    return `Department ${this.name}`;
+  }
+
+  addEmployee(newEmployee: string): void {
+    this.employees.push(newEmployee);
+  }
+
+  showAllEmployees(): string[] {
+    return this.employees;
+  }
 }
 
-let combineValues: (a: number, b: number) => number
+const accounting = new Department('accounting');
 
-combineValues = add
-console.log(combineValues(1, 3))
+console.log(accounting.departmentName());
 
-function addAndHandle(input1: number, input2: number, cb: (num: number) => void) {
-  const result = input1 + input2
-  cb(result)
-}
+accounting.addEmployee('Takuya');
+accounting.addEmployee('Kevin');
 
-console.log(addAndHandle(3, 3, () => { }))
+console.log(accounting.showAllEmployees());
