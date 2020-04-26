@@ -1,5 +1,5 @@
 interface Animal {
-  name: string;
+  readonly name: string;
 
   greet(express: string): void;
 }
