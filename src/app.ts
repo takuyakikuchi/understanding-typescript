@@ -1,33 +1,22 @@
-abstract class Department {
+interface Animal {
+  name: string;
 
-  constructor(protected id:number, private name: string, private employees: string[] = []) {}
+  greet(express: string): void;
+}
 
-  abstract departmentName(): void;
+class Person implements Animal {
+  name: string;
 
-  addEmployee(newEmployee: string): void {
-    this.employees.push(newEmployee);
+  constructor(n: string) {
+    this.name = n;
   }
 
-  get allEmployees(): string[] {
-    return this.employees;
+  greet(express: string) {
+    console.log(`${this.name} said ${express}`);
   }
 }
 
-class ItDepartment extends Department {
-  private specialties = ['Scrum Master', 'Front End', 'Back End'];
+let takuya: Animal;
+takuya = new Person("takuya");
 
-  get allSpecialties() {
-    return this.specialties;
-  }
-
-  departmentName(): string {
-    return `IT Department - No.${this.id}`;
-  }
-};
-
-const itDepartment = new ItDepartment(1, 'IT Department');
-itDepartment.addEmployee('Takuya');
-itDepartment.addEmployee('Kevin');
-console.log(itDepartment.departmentName());
-console.log(itDepartment.allSpecialties);
-console.log(itDepartment.allEmployees);
+takuya.greet("Hello everyone");
