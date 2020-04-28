@@ -17,4 +17,47 @@ const employee1: AssignedEmployee = {
   authorizedAction: ["Final approval"],
   joinDate: new Date()
 }
-console.log(employee1)
+// console.log(employee1)
+
+// Union type
+type UnknownEmployee = Employee | Admin
+
+// Type Guards for Type using "in"
+function printEmployeeInfo(employee: UnknownEmployee) {
+  console.log(`Name: ${employee.name}`)
+  if ('authorizedAction' in employee) {
+    console.log(`Authorized actions: ${employee.authorizedAction}`)
+  }
+  if ('joinDate' in employee) {
+    console.log(`Joined on: ${employee.joinDate}`)
+  }
+}
+
+// printEmployeeInfo(employee1)
+
+class Car {
+  drive() {
+    console.log('Driving...')
+  }
+}
+
+class Track extends Car {
+  loadCargo() {
+    console.log('Loading cargo...')
+  }
+}
+
+type Vehicle = Car | Track
+
+const car = new Car()
+const track = new Track()
+
+// Type Guards for Type using "instanceof"
+function useVehicle(vehicle: Vehicle) {
+  vehicle.drive()
+  if (vehicle instanceof Track) {
+    vehicle.loadCargo()
+  }
+}
+// useVehicle(car)
+// useVehicle(track)
