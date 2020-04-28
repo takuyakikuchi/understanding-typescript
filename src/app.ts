@@ -1,22 +1,20 @@
-interface Animal {
-  readonly name: string;
-
-  greet(express: string): void;
-}
-
-class Person implements Animal {
+type Admin = {
   name: string;
-
-  constructor(n: string) {
-    this.name = n;
-  }
-
-  greet(express: string) {
-    console.log(`${this.name} said ${express}`);
-  }
+  authorizedAction: string[];
 }
 
-let takuya: Animal;
-takuya = new Person("takuya");
+type Employee = {
+  name: string;
+  joinDate: Date;
+}
 
-takuya.greet("Hello everyone");
+// Intersection types
+type AssignedEmployee = Admin & Employee
+
+// Test data
+const employee1: AssignedEmployee = {
+  name: "Takuya Kikuchi",
+  authorizedAction: ["Final approval"],
+  joinDate: new Date()
+}
+console.log(employee1)

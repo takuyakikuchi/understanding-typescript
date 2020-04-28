@@ -1,13 +1,9 @@
 "use strict";
-class Person {
-    constructor(n) {
-        this.name = n;
-    }
-    greet(express) {
-        console.log(`${this.name} said ${express}`);
-    }
-}
-let takuya;
-takuya = new Person("takuya");
-takuya.greet("Hello everyone");
+// Test data
+const employee1 = {
+    name: "Takuya Kikuchi",
+    authorizedAction: ["Final approval"],
+    joinDate: new Date()
+};
+console.log(employee1);
 //# sourceMappingURL=app.js.map
