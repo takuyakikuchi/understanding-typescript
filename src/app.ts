@@ -104,3 +104,12 @@ const errorBag = {
   email: 'Not a valid email!',
   username: 'Must start with a capital character!',
 };
+
+const fetchedUser = {
+  id: 1,
+  name: 'Takuya Kikuchi',
+  job: { title: 'jr frontend', description: 'frontend developer' },
+};
+
+// Optional Chaining
+console.log(fetchedUser.job?.title);

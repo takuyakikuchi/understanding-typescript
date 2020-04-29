@@ -1,5 +1,6 @@
 "use strict";
 /** @format */
+var _a;
 // Test data
 const employee1 = {
     name: 'Takuya Kikuchi',
@@ -56,4 +57,11 @@ const errorBag = {
     email: 'Not a valid email!',
     username: 'Must start with a capital character!',
 };
+const fetchedUser = {
+    id: 1,
+    name: 'Takuya Kikuchi',
+    job: { title: 'jr frontend', description: 'frontend developer' },
+};
+// Optional Chaining
+console.log((_a = fetchedUser.job) === null || _a === void 0 ? void 0 : _a.title);
 //# sourceMappingURL=app.js.map
