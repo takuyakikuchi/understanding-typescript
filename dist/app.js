@@ -1,6 +1,5 @@
 "use strict";
 /** @format */
-var _a;
 // Test data
 const employee1 = {
     name: 'Takuya Kikuchi',
@@ -63,5 +62,9 @@ const fetchedUser = {
     job: { title: 'jr frontend', description: 'frontend developer' },
 };
 // Optional Chaining
-console.log((_a = fetchedUser.job) === null || _a === void 0 ? void 0 : _a.title);
+// console.log(fetchedUser.job?.title);
+// Nullish Coalescing
+const value = null;
+const storedData = value !== null && value !== void 0 ? value : 'DEFAULT'; // takes only 'null' or 'undefined'
+console.log(storedData);
 //# sourceMappingURL=app.js.map

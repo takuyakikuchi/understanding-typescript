@@ -112,4 +112,11 @@ const fetchedUser = {
 };
 
 // Optional Chaining
-console.log(fetchedUser.job?.title);
+// console.log(fetchedUser.job?.title);
+
+// Nullish Coalescing
+const value = null;
+
+const storedData = value ?? 'DEFAULT'; // takes only 'null' or 'undefined'
+
+console.log(storedData);
