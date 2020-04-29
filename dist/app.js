@@ -48,4 +48,8 @@ function moveAnimal(animal) {
     }
 }
 // console.log(moveAnimal({ type: 'horse', runningSpeed: 2 }));
+// Type Casting
+// const userInput = <HTMLInputElement>document.getElementById('user-input')!;
+const userInput = document.getElementById('user-input');
+userInput.value = 'Hi, there!';
 //# sourceMappingURL=app.js.map

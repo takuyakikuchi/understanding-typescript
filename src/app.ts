@@ -87,5 +87,10 @@ function moveAnimal(animal: Animal) {
       speed = animal.runningSpeed;
   }
 }
-
 // console.log(moveAnimal({ type: 'horse', runningSpeed: 2 }));
+
+// Type Casting
+// const userInput = <HTMLInputElement>document.getElementById('user-input')!;
+const userInput = document.getElementById('user-input')! as HTMLInputElement;
+
+userInput.value = 'Hi, there!';
