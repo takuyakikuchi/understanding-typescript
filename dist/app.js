@@ -1,9 +1,10 @@
 "use strict";
+/** @format */
 // Test data
 const employee1 = {
-    name: "Takuya Kikuchi",
-    authorizedAction: ["Final approval"],
-    joinDate: new Date()
+    name: 'Takuya Kikuchi',
+    authorizedAction: ['Final approval'],
+    joinDate: new Date(),
 };
 // Type Guards for Type using "in"
 function printEmployeeInfo(employee) {
@@ -35,6 +36,16 @@ function useVehicle(vehicle) {
         vehicle.loadCargo();
     }
 }
-// useVehicle(car)
-// useVehicle(track)
+// Discriminated Unions
+function moveAnimal(animal) {
+    let speed;
+    switch (animal.type) {
+        case 'bird':
+            speed = animal.flyingSpeed;
+            break;
+        case 'horse':
+            speed = animal.runningSpeed;
+    }
+}
+// console.log(moveAnimal({ type: 'horse', runningSpeed: 2 }));
 //# sourceMappingURL=app.js.map

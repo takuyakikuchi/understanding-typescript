@@ -1,0 +1,6 @@
+{
+  "prettier.singleQuote": true,
+  "editor.formatOnSave": true,
+  "prettier.insertPragma": true,
+  "editor.autoIndent": "brackets"
+}
