@@ -17,5 +17,11 @@ function countAndDescribe(element) {
 }
 // console.log(countAndDescribe('Hi there!'));
 // console.log(countAndDescribe(['one', 'two']));
-console.log(countAndDescribe([]));
+// console.log(countAndDescribe([]));
+// ------- keyof constraints ---------
+function extractWithKey(obj, key) {
+    return obj[key];
+}
+// console.log(extractWithKey({ japan: 'Japanese' }, 'japan'));
+// console.log(extractWithKey({ japan: 'Japanese' }, 'us')); // Error
 //# sourceMappingURL=app.js.map

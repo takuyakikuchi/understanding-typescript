@@ -14,11 +14,11 @@ const newObjectOne = mergeObjects(
 );
 // console.log(newObjectOne);
 
-interface LengthObj {
+interface LengthProp {
   length: number;
 }
 
-function countAndDescribe<T extends LengthObj>(element: T): [T, string] {
+function countAndDescribe<T extends LengthProp>(element: T): [T, string] {
   let description = 'There is not element passed';
   if (element.length === 1) {
     description = 'There is 1 element';
@@ -30,4 +30,12 @@ function countAndDescribe<T extends LengthObj>(element: T): [T, string] {
 
 // console.log(countAndDescribe('Hi there!'));
 // console.log(countAndDescribe(['one', 'two']));
-console.log(countAndDescribe([]));
+// console.log(countAndDescribe([]));
+
+// ------- keyof constraints ---------
+function extractWithKey<T extends object, U extends keyof T>(obj: T, key: U) {
+  return obj[key];
+}
+
+// console.log(extractWithKey({ japan: 'Japanese' }, 'japan'));
+// console.log(extractWithKey({ japan: 'Japanese' }, 'us')); // Error
