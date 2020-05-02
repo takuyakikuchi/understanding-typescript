@@ -1,70 +1,9 @@
 "use strict";
 /** @format */
-// Test data
-const employee1 = {
-    name: 'Takuya Kikuchi',
-    authorizedAction: ['Final approval'],
-    joinDate: new Date(),
-};
-// Type Guards for Type using "in"
-function printEmployeeInfo(employee) {
-    console.log(`Name: ${employee.name}`);
-    if ('authorizedAction' in employee) {
-        console.log(`Authorized actions: ${employee.authorizedAction}`);
-    }
-    if ('joinDate' in employee) {
-        console.log(`Joined on: ${employee.joinDate}`);
-    }
+// Generic Function
+function mergeObjects(objectOne, objectTwo) {
+    return Object.assign(objectOne, objectTwo);
 }
-// printEmployeeInfo(employee1)
-class Car {
-    drive() {
-        console.log('Driving...');
-    }
-}
-class Track extends Car {
-    loadCargo() {
-        console.log('Loading cargo...');
-    }
-}
-const car = new Car();
-const track = new Track();
-// Type Guards for Type using "instanceof"
-function useVehicle(vehicle) {
-    vehicle.drive();
-    if (vehicle instanceof Track) {
-        vehicle.loadCargo();
-    }
-}
-// Discriminated Unions
-function moveAnimal(animal) {
-    let speed;
-    switch (animal.type) {
-        case 'bird':
-            speed = animal.flyingSpeed;
-            break;
-        case 'horse':
-            speed = animal.runningSpeed;
-    }
-}
-// console.log(moveAnimal({ type: 'horse', runningSpeed: 2 }));
-// Type Casting
-// const userInput = <HTMLInputElement>document.getElementById('user-input')!;
-const userInput = document.getElementById('user-input');
-userInput.value = 'Hi, there!';
-const errorBag = {
-    email: 'Not a valid email!',
-    username: 'Must start with a capital character!',
-};
-const fetchedUser = {
-    id: 1,
-    name: 'Takuya Kikuchi',
-    job: { title: 'jr frontend', description: 'frontend developer' },
-};
-// Optional Chaining
-// console.log(fetchedUser.job?.title);
-// Nullish Coalescing
-const value = null;
-const storedData = value !== null && value !== void 0 ? value : 'DEFAULT'; // takes only 'null' or 'undefined'
-console.log(storedData);
+const newObjectOne = mergeObjects({ name: 'Takuya', hobbies: ['Futsal'] }, { age: 30 });
+console.log(newObjectOne);
 //# sourceMappingURL=app.js.map
