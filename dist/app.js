@@ -1,56 +1,43 @@
 "use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 /** @format */
-// ---- Generic Function with Constraints -------
-function mergeObjects(objectOne, objectTwo) {
-    return Object.assign(objectOne, objectTwo);
+function Logger(randomString) {
+    console.log('Logger factory');
+    return function (constructor) {
+        console.log(randomString);
+        console.log(constructor);
+    };
 }
-const newObjectOne = mergeObjects({ name: 'Takuya', hobbies: ['Futsal'] }, { age: 30 });
-function countAndDescribe(element) {
-    let description = 'There is not element passed';
-    if (element.length === 1) {
-        description = 'There is 1 element';
-    }
-    else if (element.length > 1) {
-        description = `There are ${element.length} elements`;
-    }
-    return [element, description];
+function WithTemplate(template, id) {
+    console.log('Template factory');
+    return function (constructor) {
+        console.log('Rendering template');
+        const appDiv = document.getElementById(id);
+        const newPerson = new Person();
+        if (appDiv) {
+            appDiv.innerHTML = template;
+            appDiv.querySelector('h1').textContent = newPerson.name;
+        }
+    };
 }
-// console.log(countAndDescribe('Hi there!'));
-// console.log(countAndDescribe(['one', 'two']));
-// console.log(countAndDescribe([]));
-// ------- keyof constraints ---------
-function extractWithKey(obj, key) {
-    return obj[key];
-}
-// console.log(extractWithKey({ japan: 'Japanese' }, 'japan'));
-// console.log(extractWithKey({ japan: 'Japanese' }, 'us')); // Error
-// --------- Generic Class -----------
-class DataStorage {
+/* ---------- Decorators ----------
+ *Decorators provide a way to add both annotations and a meta-programming syntax for class *declarations and members
+ */
+let Person = class Person {
     constructor() {
-        this.data = [];
+        this.name = 'Takuya Kikuchi';
+        console.log('Creating new person...');
     }
-    addData(element) {
-        this.data.push(element);
-    }
-    removeData(element) {
-        this.data.splice(this.data.indexOf(element), 1);
-    }
-    getData() {
-        return [...this.data];
-    }
-}
-// String test
-// const stringData = new DataStorage<string>();
-// stringData.addData('Takuya');
-// stringData.addData('Fumiko');
-// console.log(`Before remove ${stringData.getData()}`);
-// stringData.removeData('Fumiko');
-// console.log(`After remove ${stringData.getData()}`);
-// Number test
-// const numberData = new DataStorage<number>();
-// numberData.addData(1);
-// numberData.addData(2);
-// console.log(`Before remove ${numberData.getData()}`);
-// numberData.removeData(1);
-// console.log(`After remove ${numberData.getData()}`);
+};
+Person = __decorate([
+    Logger('Logging'),
+    WithTemplate('<h1>My Person Object</h1>', 'app')
+], Person);
+const takuya = new Person();
+console.log(takuya);
 //# sourceMappingURL=app.js.map
